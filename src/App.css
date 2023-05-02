@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+.App{
+  width: 500px;
+  height: 2000px;
+  margin: 0 auto;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+    font-family: 'Brush Script MT';
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 50;
+    margin: 1rem 0;
+    letter-spacing: -2px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title{
+  text-decoration: none;
+  color: #965b80;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Form{
+  margin: 20px auto;
 }
-
-.App-link {
-  color: #61dafb;
+.Form input,select{
+  width: 100%;
+  border: 2px solid #86868fa2;
+  padding:5px;
+  box-sizing: content-box;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a{
+  text-decoration: none;
+}
+button{
+    text-transform: uppercase;
+    background:#965b80;
+    width: 250px;
+    margin: 15px 130px 5px 130px;
+    border: 0;
+    padding: 5px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+button:hover{
+  background: #7B8589;
+  border: 2px solid #965b80;
+}
+button:disabled{
+  background: rgb(239, 243, 243);
+  color: black;
+  border: none;
+  cursor: default;
+}
+.error{
+  color: red;
 }
