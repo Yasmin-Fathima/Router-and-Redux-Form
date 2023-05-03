@@ -30,16 +30,19 @@ class Form extends Component{
         if(event.target.name ==='Name'){
             if(name.length>= 8 && name.length<=25){
                 this.setState({nameErr:''});
-                const re= /^[a-zA-Z]+(([a-zA-Z ])?[a-zA-Z]+)*$/;
+                const re= /^[a-zA-Z]+([ ]?[a-zA-Z]+)*$/;
                 if(!re.test(name)){
                     this.setState({nameErr:'Enter a valid Name'});
+                    name='err'
                 }
             }
             else if(name.length<8){
                 this.setState({nameErr:'Should have minimum 8 characters'});
+                name='err'
             }
             else{
                 this.setState({nameErr:'Should not exceed 25 characters'});
+                name='err'
             }
         }
 
@@ -48,6 +51,7 @@ class Form extends Component{
             const date = new Date();
             if(dob.substring(0,4) >= date.getFullYear() && ( dob.substring(5,7) > date.getMonth()+1 || dob.substring(8,) > date.getDate())) {
                 this.setState({dobErr: 'Enter a valid Date'});
+                dob='err'
             }
             else{
                 this.setState({dobErr: ''});
@@ -56,9 +60,10 @@ class Form extends Component{
 
         //Email validation
         if(event.target.name ==='EmailAddress'){
-            const re=/^\w+[0-9]?@[a-zA-Z]+?\.[a-zA-Z]{2,3}$/
+            const re=/^\w+[0-9]?@[a-zA-Z]+\.[a-zA-Z]{2,3}$/
             if(!re.test(email)){
                 this.setState({emailErr:'Enter a valid Email Address'});
+                email='err'
             }
             else{
                 this.setState({emailErr:''});
@@ -77,7 +82,8 @@ class Form extends Component{
 
         //Phone Number Validation
         if(event.target.name === 'PhoneNumber'){
-            if(phoneNumber.length !== 10){
+            const re=/[0-9]{10}$/
+            if(!re.test(phoneNumber)){
                 this.setState({phoneNumberErr:'Enter a valid phone number'});
             }
             else{
@@ -86,7 +92,7 @@ class Form extends Component{
         }
 
         //Submit - Enable & disable
-        if( (name && dob && email !== '') && country !== 'Select a country' && phoneNumber.length === 10){
+        if( (name && dob && email !== 'err') && country !== 'Select a country' && phoneNumber.length === 10){
             this.setState({disabled:false});
         }
         else{
