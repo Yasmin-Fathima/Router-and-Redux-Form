@@ -33,16 +33,16 @@ class Form extends Component{
                 const re= /^[a-zA-Z]+([ ]?[a-zA-Z]+)*$/;
                 if(!re.test(name)){
                     this.setState({nameErr:'Enter a valid Name'});
-                    name='err'
+                    name='err';
                 }
             }
             else if(name.length<8){
                 this.setState({nameErr:'Should have minimum 8 characters'});
-                name='err'
+                name='err';
             }
             else{
                 this.setState({nameErr:'Should not exceed 25 characters'});
-                name='err'
+                name='err';
             }
         }
 
@@ -92,8 +92,9 @@ class Form extends Component{
         }
 
         //Submit - Enable & disable
-        if( (name && dob && email !== 'err') && country !== 'Select a country' && phoneNumber.length === 10){
+        if( name !== 'err' && dob !== 'err' && email !== 'err' && country !== 'Select a country' && phoneNumber.length === 10){
             this.setState({disabled:false});
+            console.log(name);
         }
         else{
             this.setState({disabled:true});
